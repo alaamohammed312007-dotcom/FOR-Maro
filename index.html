@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى أغلى ما أملك ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        /* إلغاء بار التمرير الرئيسي من المتصفح نهائياً */
+        html, body {
+            margin: 0; padding: 0; 
+            width: 100%; height: 100%;
+            overflow: hidden !important;
+            background-color: #0a0a0a;
+            font-family: 'Cairo', sans-serif; color: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        /* خلفية مود الحب الكونية */
+        .bg-animated {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(125deg, #0f051d, #290a43, #4a0e4e, #140526);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; z-index: -2;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hidden-section { display: none !important; }
+        .active-section { display: flex !important; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+
+        h1 {
+            font-size: 2.2rem; margin: 15px 0;
+            text-shadow: 0 0 15px #ff007f;
+            animation: glow 2s ease-in-out infinite alternate; text-align: center;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff007f; }
+            to { text-shadow: 0 0 25px #ff007f, 0 0 35px #6a0dad; }
+        }
+
+        /* العداد */
+        .timer-wrapper {
+            display: grid !important; grid-template-columns: repeat(5, 1fr) !important;
+            gap: 12px; width: 92%; max-width: 550px; margin: 20px 0;
+        }
+
+        .time-unit {
+            background: rgba(255, 255, 255, 0.07) !important;
+            padding: 15px 5px; border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px); text-align: center;
+        }
+
+        .number { display: block; font-size: 2rem; font-weight: bold; color: #00f2fe; }
+        .label { display: block; font-size: 0.85rem; color: #ddd; margin-top: 3px; }
+
+        .magic-btn {
+            background: linear-gradient(45deg, #ff007f, #6a0dad) !important;
+            border: none; padding: 12px 40px; font-size: 1.1rem; color: white !important;
+            border-radius: 50px; cursor: pointer; box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+            transition: 0.3s; font-weight: bold; font-family: 'Cairo', sans-serif; margin: 15px 0;
+        }
+
+        .magic-btn:hover { transform: scale(1.03); box-shadow: 0 0 30px rgba(255, 0, 127, 0.8); }
+
+        /* صندوق كارد الرسالة المطور */
+        #msg-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 5, 20, 0.9); z-index: 1000; justify-content: center; align-items: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(20px); 
+            padding: 30px; width: 88%; max-width: 540px;
+            border-radius: 25px; border: 1px solid rgba(255,255,255,0.2); 
+            text-align: center; box-shadow: 0 0 40px rgba(106, 13, 173, 0.3);
+            
+            /* تفعيل السكرول الداخلي بدون إظهار البار */
+            max-height: 80vh;
+            overflow-y: scroll !important; 
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
+
+        /* إخفاء البار لمتصفحات كروم وسفاري */
+        .glass-card::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+/* تنسيق الفقرات ومنع التقطيع والمسافات العشوائية */
+        .glass-card p { 
+            font-size: 1.05rem; 
+            line-height: 1.8; 
+            color: #fff; 
+            margin-top: 25px !important;
+            margin-bottom: 25px !important;
+            text-align: center !important; 
+            word-break: break-word;
+        }
+
+        .img-container { margin-top: 10px; margin-bottom: 5px; text-align: center; }
+        .couple-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #ff007f; box-shadow: 0 0 20px #ff007f; }
+        .img-container-small { text-align: center; margin-bottom: 5px; }
+        .couple-img-small { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #00f2fe; box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); }
+
+        /* صفحة الباسورد */
+        .login-container {
+            background: rgba(255, 255, 255, 0.06) !important; backdrop-filter: blur(20px);
+            padding: 35px 25px; border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center; width: 85%; max-width: 360px; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .login-container h2 { font-size: 1.2rem; margin-bottom: 20px; text-shadow: 0 0 10px #ff007f; color: #fff; }
+        .login-container input {
+            width: 80%; padding: 12px; margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08); color: white; text-align: center; font-size: 1.1rem; outline: none;
+        }
+        #error-msg { color: #ff4d6d; font-weight: bold; margin-top: 8px; display: none; font-size: 0.9rem; }
+
+        .floating-heart { position: absolute; font-size: 22px; pointer-events: none; animation: floatUp 3.5s linear forwards; z-index: 5; }
+        @keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1.4); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animated"></div>
+
+    <audio id="loveSong" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="login-section" class="active-section">
+        <div class="login-container">
+            <h2>لو إنت مارو دخل تاريخ أول يوم اتقابلنا فيه 👀♥️</h2>
+            <input type="password" id="passwordInput" placeholder="اكتب الباسورد هنا...">
+            <br>
+            <button class="magic-btn" onclick="checkPassword()">دخول ✨</button>
+            <p id="error-msg">لا غلط ركز كدا وافتكر تاريخنا! 😉</p>
+        </div>
+    </div>
+
+    <div id="main-section" class="hidden-section">
+        <div class="img-container">
+            <img src="our-hands.jpg" alt="إيدينا سوا" class="couple-img">
+        </div>
+
+        <h1>كل لحظه وانا معاك ❤️</h1>
+        
+        <div class="timer-wrapper">
+            <div class="time-unit"><span class="number" id="yrs">0</span><span class="label">سنين</span></div>
+            <div class="time-unit"><span class="number" id="dys">0</span><span class="label">أيام</span></div>
+            <div class="time-unit"><span class="number" id="hrs">0</span><span class="label">ساعات</span></div>
+            <div class="time-unit"><span class="number" id="mins">0</span><span class="label">دقائق</span></div>
+            <div class="time-unit"><span class="number" id="secs">0</span><span class="label">ثواني</span></div>
+        </div>
+
+        <button class="magic-btn" onclick="openMessage()">دوس هنا.. ماسدج من لولو ...😍♥️.</button>
+    </div>
+
+    <div id="msg-overlay">
+        <div class="glass-card">
+            <div class="img-container-small">
+                <img src="our-hands.jpg" alt="إيدينا سوا" class="couple-img-small">
+            </div>
+            
+            <p>أول عيد لينا سوا كل سنه وانت طيب يا مارو كل سنه وانت محلي حياتي وكل حاجه في وجودك حلوه وجميله☺️🌍💘💘 .</p>
+
+            <p>مبسوطه اوي بوجودك معايا كل لحظه بتخليني احس ان انا اخترت راجل صح راجل بيخاف عليا بيحبني بيعرف يهتم بيا صح وبيعرف يفهمني صح و جوده أمان 🫵🏻🤍♥️♥️♥️♥️.</p>
+        
+            <p>بتمنى من كل قلبي إن حبنا يفضل يكبر كل يوم عن اللي قبله، وربنا يبارك لنا ويكون حب حلال يرضيه ويجمعنا سوا على خير بالحلال قريب وتتحمل جناني رسمي قول آمين 🤲🏻💍♥️♥️♥️♥️♥️. بس هو انا مجنونه😂😂 🥺 ؟؟؟</p>
+            
+            <p>حقك عليا لو في اي يوم زعلتك من غير ما اقصد مش يهون عليا ازعلك ابدا عشان انا هبله وساعات بهبب بالدنيا من غير ما اقصد بس مش يهون عليا احساسك وانت متضايق مني و مش عايزه حاجه تبعدنا حقك عليا يا قلب لوليتا 😍😍😍♥️♥️.</p>
+            
+            <p>بحبك اوي يا مارو بحبك من كل قلبي بجد حب نضيف و نقي بشكرك على وجودك في حياتي وبشكرك على اي حاجه حلوه بتقدمهالي بحبك اوي ومش هتخلى عنك 🥺🥹♥️.</p>
+            
+            <p>ده احلى عيد ان انت في حياتي كل يوم وانت جنبي يوم عيد كل عيد وانت العيد العديه يا إنفينتي🌚♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️.</p>
+            
+            <button class="magic-btn" style="width: 100%; margin: 20px 0 0 0;" onclick="finalLink('https://youtu.be/SKfi0V8NRhQ?si=uuOzLaKX8138YcYm')">مفاجأة أخيرة 🎁</button>
+        </div>
+    </div>
+
+    <script>
+        function startAll() {
+            const song = document.getElementById('loveSong');
+            if (song) {
+                song.muted = false;
+                song.play().catch(e => console.log(e));
+            }
+            spawnHearts();
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('passwordInput').value.trim();
+            const error = document.getElementById('error-msg');
+            
+            if (pass === "552026") {
+                startAll();
+                document.getElementById('login-section').classList.remove('active-section');
+                document.getElementById('login-section').classList.add('hidden-section');
+                
+                document.getElementById('main-section').classList.remove('hidden-section');
+                document.getElementById('main-section').classList.add('active-section');
+            } else {
+                error.style.display = "block";
+            }
+        }
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        function spawnHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.animationDuration = (Math.random() * 1.5 + 2.5) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3500);
+            }, 400);
+        }
+
+        const start = new Date("April 22, 2026 00:00:00").getTime();
+
+        setInterval(() => {
+            const diff = new Date().getTime() - start;
+            if (diff < 0) return;
+
+            const msPerSecond = 1000;
+            const msPerMinute = 60000;
+            const msPerHour = 3600000;
+            const msPerDay = 86400000;
+
+            document.getElementById('yrs').innerText = Math.floor(diff / (msPerDay * 365.25));
+            document.getElementById('dys').innerText = Math.floor((diff % (msPerDay * 365.25)) / msPerDay);
+            document.getElementById('hrs').innerText = Math.floor((diff % msPerDay) / msPerHour);
+            document.getElementById('mins').innerText = Math.floor((diff % msPerHour) / msPerMinute);
+            document.getElementById('secs').innerText = Math.floor((diff % msPerMinute) / msPerSecond);
+        }, 1000);
+
+        function openMessage() {
+            document.getElementById('msg-overlay').style.display = 'flex';
+        }
+
+        function finalLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
